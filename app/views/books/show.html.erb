@@ -1,0 +1,10 @@
+<h1>Books#show</h1>
+<p><%= @book.title  %></p>
+<p><%= @book.author  %></p>
+<p><%= @book.state  %></p>
+<p><%= distance_of_time_in_words(Time.now, @book.borrowed_at) %></p>
+<p><%= distance_of_time_in_words(Time.now, @book.returned_at)%></p>
+<p><%= distance_of_time_in_words(Time.now, @book.updated_at) %></p>
+
+<%= link_to 'Edit', edit_book_path(@book) %>
+<%= link_to 'Index', root_path %>

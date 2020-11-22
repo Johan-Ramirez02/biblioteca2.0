@@ -1,0 +1,35 @@
+<%= form_for(@book) do |f| %>
+    <% if @book.errors.any? %>
+        <h2><%= pluralize(@book.errors.count, "errors")%> Han prohibido al libro de guardarse</h2>
+        <ul>
+            <%=@book.errors.full_messages.each do |message|%>
+            <li> <%= message %></li>
+            <%end%>
+        </ul>
+<%end%>
+
+    <div>
+        <%= f.label :title, 'Titulo' %>
+        <%= f.text_field :title %>    
+    </div>
+    <div>
+        <%= f.label :author, 'Autor' %>
+        <%= f.text_field :author %>
+    </div>
+    <div>
+        <%= f.label :state, 'Estado' %>
+        <%= f.select :state, Book.states.keys %>
+    </div>
+    <div>
+        <%= f.label :borrowed_at %>
+        <%= f.datetime_select :borrowed_at %>
+    </div>
+    <div>
+        <%= f.label :returned_at %>
+        <%= f.date_select :returned_at %>
+    </div>
+    <div>
+        <%= f.submit %>
+    </div>
+
+<% end %>
